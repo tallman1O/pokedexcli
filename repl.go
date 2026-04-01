@@ -14,6 +14,7 @@ type cliCommand struct {
 }
 
 func startRepl() {
+	fmt.Println("Choose a command to perform:")
 	scanner := bufio.NewScanner(os.Stdin)
 	availableCommands := getCommands()
 	for {
@@ -46,6 +47,11 @@ func getCommands() map[string]cliCommand {
 			name:        "help",
 			description: "Shows this help message",
 			callback:    callbackHelp,
+		},
+		"map": {
+			name:        "map",
+			description: "Lists some location areas",
+			callback:    callbackMap,
 		},
 		"exit": {
 			name:        "exit",
